@@ -9,7 +9,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended:false }));
 
-app.get('/incoming', apiController.update);
+app.get('/incoming', apiController.retrieve, apiController.update);
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, function() {
