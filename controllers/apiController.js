@@ -36,7 +36,9 @@ const apiController = {
 	},
 	update 		: function (req,res) {
 
-		let updateBody = '<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>ContactService.addToCampaign</methodName><params><param><value><string>' + configVars.regPrivateKey + '</string></value></param><param><value><int>' + req.body.contactIDNumber + '</int></value></param><param><value><int>2004</int></value></param></params></methodCall>'
+		let updateBody = '<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>FunnelService.achieveGoal</methodName><params><param><value><string>' + configVars.regPrivateKey + '</string></value></param><param><value><string>or106</string></value></param><param><value><string>apiTest</string></value></param><param><value><int>' + req.body.contactIDNumber + '</int></value></param></params></methodCall>'
+
+		// let updateBody = '<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>ContactService.addToCampaign</methodName><params><param><value><string>' + configVars.regPrivateKey + '</string></value></param><param><value><int>' + req.body.contactIDNumber + '</int></value></param><param><value><int>2004</int></value></param></params></methodCall>'
 
 		// let updateBody = '<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>ContactService.addToGroup</methodName><params><param><value><string>' + configVars.privateKey + '</string></value></param><param><value><int>' + req.body.contactIDNumber + '</int></value></param><param><value><int>279</int></value></param></params></methodCall>'
 
