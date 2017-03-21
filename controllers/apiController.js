@@ -12,7 +12,9 @@ const apiController = {
 	// Update user with ?
 	retrieve	: function (req,res, next) {
 
-		let searchBody = '<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>ContactService.findByEmail</methodName><params><param><value><string>' + configVars.privateKey + '</string></value></param><param><value><string>AUTHORKECK568@ACXIOM.COM</string></value></param><param><value><array><data><value><string>FirstName</string></value><value><string>Id</string></value></data></array></value></param></params></methodCall>'
+		console.log(req.body);
+
+		let searchBody = '<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>ContactService.findByEmail</methodName><params><param><value><string>' + configVars.regPrivateKey + '</string></value></param><param><value><string>' + req.body.email + '</string></value></param><param><value><array><data><value><string>FirstName</string></value><value><string>Id</string></value></data></array></value></param></params></methodCall>'
 
 		request ({
 			method	: 'POST',
@@ -24,7 +26,7 @@ const apiController = {
 			if (err) {
 				return console.log('Update Failed: ', err);
 			}
-			
+
 			let contactIDNumber = body.split('<value><i4>')[1].split('</i4></value>')[0];
 
 			req.body.contactIDNumber = parseInt(contactIDNumber);
@@ -38,7 +40,7 @@ const apiController = {
 
 		request ({
 			method	: 'POST',
-			url		: apiURL,
+			url		: devURL,
 			headers	: {'Content-Type' : 'application/xml'},
 			body	: updateBody
 		}, function (err, resp, body) {
