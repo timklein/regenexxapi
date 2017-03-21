@@ -42,7 +42,7 @@ const apiController = {
 
 		request ({
 			method	: 'POST',
-			url		: devURL,
+			url		: apiURL,
 			headers	: {'Content-Type' : 'application/xml'},
 			body	: updateBody
 		}, function (err, resp, body) {
